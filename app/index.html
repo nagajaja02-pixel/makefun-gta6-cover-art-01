@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cover Studio — Make a Poster Cover from Any Photo</title>
+<style>
+  @font-face {
+    font-family: "CoverDisplay";
+    src: url("fonts/NotoSansDisplay-CondensedBlack.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">COVER STUDIO</div>
+  <p class="tagline">Turn any photo into a poster cover. Your photo never leaves this page.</p>
+</header>
+
+<main class="workspace">
+  <section class="preview-pane">
+    <div class="preview-wrap">
+      <canvas id="poster" width="1080" height="1080"></canvas>
+    </div>
+    <p class="hint">Drag a panel to move its photo &middot; scroll over a panel to zoom &middot; the preview is the export</p>
+    <div class="size-row" id="size-pick"></div>
+  </section>
+
+  <aside class="controls">
+    <section class="group">
+      <h2>1 &middot; Photo</h2>
+      <label class="file-btn" for="photo-file">Choose a photo&hellip;</label>
+      <input type="file" id="photo-file" accept="image/*" hidden>
+      <div class="sample-row">
+        <span>Or try a sample:</span>
+        <button type="button" id="sample-pier" class="mini-btn">Pier</button>
+        <button type="button" id="sample-boulevard" class="mini-btn">Boulevard</button>
+      </div>
+      <p class="photo-name" id="photo-name">pier.jpg</p>
+    </section>
+
+    <section class="group">
+      <h2>2 &middot; Layout</h2>
+      <div class="toggle-row" id="layout-pick"></div>
+      <div class="btn-row">
+        <button type="button" id="shuffle-crops" class="mini-btn">Shuffle crops</button>
+        <button type="button" id="reset-crops" class="mini-btn">Reset crops</button>
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>3 &middot; Grade</h2>
+      <div class="toggle-row" id="grade-pick"></div>
+    </section>
+
+    <section class="group">
+      <h2>4 &middot; Caption</h2>
+      <label class="field-label" for="caption-input">Title</label>
+      <input type="text" id="caption-input" value="SUNSET HEIST" maxlength="24" autocomplete="off">
+      <label class="field-label" for="subtitle-input">Subtitle</label>
+      <input type="text" id="subtitle-input" value="ONE LAST DRIVE" maxlength="32" autocomplete="off">
+      <div class="toggle-row" id="lettering-pick"></div>
+    </section>
+
+    <section class="group">
+      <h2>5 &middot; Export</h2>
+      <div class="export-row">
+        <button type="button" class="export-btn" data-export="square">Square<br><span>1080 &times; 1080</span></button>
+        <button type="button" class="export-btn" data-export="portrait">Story<br><span>1080 &times; 1350</span></button>
+        <button type="button" class="export-btn" data-export="wide">Wide<br><span>1920 &times; 1080</span></button>
+      </div>
+      <p class="fineprint">PNG, straight from your browser. No upload, no account, no watermark.</p>
+    </section>
+  </aside>
+</main>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
